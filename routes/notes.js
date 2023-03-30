@@ -7,14 +7,14 @@ const { body, validationResult } = require("express-validator");
 // ROUTE 1: Get All the Notes using: GET "/api/notes/getuser". Login Required
 router.get("/routes/notes/fetchallnotes", fetchuser, async (req, res) => {
   try {
-    console.log("fetching all notes");
-    console.log(req.user);
-    console.log(req);
+    // console.log("fetching all notes");
+    // console.log(req.user);
+    // console.log(req);
     const notes = await Note.find({ user: req.user.id });
     res.json(notes);
   } catch (error) {
-    console.log(error.message);
-    console.log("cannot fetch notes");
+    // console.log(error.message);
+    // console.log("cannot fetch notes");
     res.status(500).send("Internal server error");
   }
 });
@@ -46,7 +46,7 @@ router.post("/routes/notes/addnote", fetchuser,
 
       res.json(savedNote);
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
       res.status(500).send("Internal server error");
     }
   }
@@ -85,7 +85,7 @@ router.put("/routes/notes/updatenote/:id", fetchuser, async (req, res) => {
     );
     res.json({ note });
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
     res.status(500).send("Internal server error");
   }
 });
@@ -108,7 +108,7 @@ router.delete("/routes/notes/deletenote/:id", fetchuser, async (req, res) => {
     note = await Note.findByIdAndDelete(req.params.id);
     res.json({ Success: "Note has been deleted", note: note });
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
     res.status(500).send("Internal server error");
   }
 });

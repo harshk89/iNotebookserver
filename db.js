@@ -8,15 +8,16 @@ const mongoURI = process.env.DATABASE
 // var mongoURI = process.env.REACT_APP_DATABASE
 const connectToMongo = ()=> {
     mongoose.connect(mongoURI).then(()=> {
-        console.log("Connected to mongo successfully");
+        // console.log("Connected to mongo successfully");
         // console.log(typeof mongoURI)
         // console.log(mongoURI)
         // console.log(process.env)
     }).catch((err)=>{
         // console.log(typeof mongoURI)
         // console.log(mongoURI)
-        console.log("no connection ")
-        console.log(err)});
+        // console.log("no connection ")
+        // console.log(err)
+    });
 }
 
 module.exports = connectToMongo;
